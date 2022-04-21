@@ -10,7 +10,7 @@
             }
         },
         "adminUsername": {
-            "defaultValue": "ultrauser",
+            "defaultValue": "azureuser",
             "type": "String",
             "metadata": {
                 "description": "The admin username of the VM."
@@ -23,19 +23,20 @@
             }
         },
         "virtualMachineSize": {
-            "defaultValue": "Standard_E32s_v3",
+            "defaultValue": "Standard_E64s_v4",
             "type": "String",
             "metadata": {
                 "description": "The virtual machine size. Enter a VM from the list supported at Preview."
             }
         },
         "operatingSystem": {
-            "defaultValue": "WindowsServer2016",
+            "defaultValue": "WindowsServer2022",
             "allowedValues": [
                 "WindowsServer2016",
                 "WindowsServerWithContainers2016",
                 "WindowsServer2019",
                 "WindowsServerWithContainers2019",
+                "WindowsServer2022",
                 "UBUNTU1604",
                 "Sles1203",
                 "sles-sap-15-sp3-byos-gen2",
@@ -63,7 +64,7 @@
             }
         },
         "dataDisksCount": {
-            "defaultValue": 1,
+            "defaultValue": 12,
             "type": "Int",
             "metadata": {
                 "description": "Number of Ultra SSD data disks to attach to VM."
@@ -106,7 +107,7 @@
         },
         "zone": {
             "type": "Int",
-            "defaultValue": 2,
+            "defaultValue": 1,
             "metadata": {
               "description": "Availability Zone of the VM and the attached disks"
             }
@@ -131,6 +132,11 @@
                 "PublisherValue": "MicrosoftWindowsServer",
                 "OfferValue": "WindowsServer",
                 "SkuValue": "2019-Datacenter-GS"
+            },
+            "WindowsServer2022": {
+                "PublisherValue": "MicrosoftWindowsServer",
+                "OfferValue": "WindowsServer",
+                "SkuValue": "2022-Datacenter-GS"
             },
             "WindowsServerWithContainers2019": {
                 "PublisherValue": "MicrosoftWindowsServer",
