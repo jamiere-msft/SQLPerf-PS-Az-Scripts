@@ -81,6 +81,14 @@
                 "description": "Enable Accelerated Networking on the VM."
             }
         },
+        {
+        "networkInterfaceSuffix": {
+            "type": "String",
+            "defaultValue": "456",
+            "metadata": {
+                "description": "Numeric suffic for network interface"
+            }
+        },
         "zone": {
             "type": "Int",
             "defaultValue": 0,
@@ -124,7 +132,7 @@
         "subnetPrefix": "10.1.0/24",
         "publicIPAddressType": "Static",
         "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('subnetName'))]",
-        "networkInterfaceName": "[toLower(parameters('virtualMachineName'))]",
+        "networkInterfaceName": "[concat[toLower(parameters('virtualMachineName'))],[(variables('networkInterfaceSuffix')]]",
         "publicIpAddressName": "[concat(toLower(parameters('virtualMachineName')),'-ip')]",
         "nsgName": "[concat(parameters('virtualMachineName'),'-nsg')]"
     },
