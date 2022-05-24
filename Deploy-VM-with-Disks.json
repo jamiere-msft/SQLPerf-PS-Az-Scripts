@@ -126,8 +126,8 @@
                 "SkuValue": "2019-Datacenter-With-Containers-GS"
             }
         },
-        "addressPrefix": "10.1.0.0/24",
-        "subnetPrefix": "10.1.0.0/24",
+        "addressPrefix": "10.2.1.0/24",
+        "subnetPrefix": "10.2.1.0/24",
         "publicIPAddressType": "Static",
         "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('subnetName'))]",
         "networkInterfaceName": "[toLower(parameters('virtualMachineName'))]",
