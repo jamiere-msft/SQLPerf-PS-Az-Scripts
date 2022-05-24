@@ -288,7 +288,7 @@
             "name": "[parameters('virtualMachineName')]",
             "location": "[parameters('location')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaceName'))]"
+                "[resourceId('Microsoft.Network/networkInterfaces', variables('networkInterfaceName'))]"
             ],
             "tags": {
                 "azsecpack": "SQLPerf",
