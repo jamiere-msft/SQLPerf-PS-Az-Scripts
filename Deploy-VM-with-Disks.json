@@ -127,7 +127,7 @@
             }
         },
         "addressPrefix": "10.1.0.0/24",
-        "subnetPrefix": "10.1.0/24",
+        "subnetPrefix": "10.1.0.0/24",
         "publicIPAddressType": "Static",
         "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('subnetName'))]",
         "networkInterfaceName": "[toLower(parameters('virtualMachineName'))]",
@@ -244,7 +244,7 @@
                         "direction": "Inbound",
                         "destinationAddressPrefix": "*",
                         "destinationPortRange": "1433,3389",
-                        "sourcePortRanges": [],
+                        "sourcePortRanges": "*",
                         "destinationPortRanges": [],
                         "sourceAddressPrefixes": [
                             "167.220.148.0/23",
