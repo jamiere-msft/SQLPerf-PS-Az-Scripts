@@ -137,12 +137,6 @@
     },
 "resources": [
         {
-            "type": "Microsoft.Resources/resourceGroups",
-            "apiVersion": "2018-05-01",
-            "location": "[parameters('location')]",
-            "name": "[parameters('resourceGroupName')]"
-        },
-        {
             "type": "Microsoft.Compute/disks",
             "apiVersion": "2021-12-01",
             "name": "[concat(parameters('virtualMachineName'),'-dataDisk',copyIndex())]",
@@ -206,7 +200,7 @@
         {
             "type": "Microsoft.Network/networkInterfaces",
             "apiVersion": "2018-02-01",
-            "networkInterfaceName": "[toLower(parameters('virtualMachineName'))]",
+            "name": "[variables('networkInterfaceName')]",
             "location": "[parameters('location')]",
             "dependsOn": [
                 "[concat('Microsoft.Network/publicIPAddresses/', variables('publicIpAddressName'))]",
