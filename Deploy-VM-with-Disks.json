@@ -206,7 +206,6 @@
         {
             "type": "Microsoft.Network/networkInterfaces",
             "apiVersion": "2018-02-01",
-            "name": "[parameters('networkInterfaceName')]",
             "location": "[parameters('location')]",
             "dependsOn": [
                 "[concat('Microsoft.Network/publicIPAddresses/', variables('publicIpAddressName'))]",
