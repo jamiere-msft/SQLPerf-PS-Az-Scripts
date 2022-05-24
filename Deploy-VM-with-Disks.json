@@ -81,12 +81,6 @@
                 "description": "Enable Accelerated Networking on the VM."
             }
         },
-        "networkInterfaceName": {
-            "type": "Int",
-            "metadata": {
-              "description": "Availability Zone of the VM and the attached disks"
-            }
-        },
         "zone": {
             "type": "Int",
             "defaultValue": 0,
@@ -133,13 +127,12 @@
         "networkInterfaceName": "[toLower(parameters('virtualMachineName'))]",
         "publicIpAddressName": "[concat(toLower(parameters('virtualMachineName')),'-ip')]",
         "nsgName": "[concat(parameters('virtualMachineName'),'-nsg')]"
-    
     },
-"resources": [
+    "resources": [
         {
             "type": "Microsoft.Compute/disks",
             "apiVersion": "2021-12-01",
-            "name": "[concat(parameters('virtualMachineName'),'-dataDisk',copyIndex())]",
+            "name": "[concat(parameters('virtualMachineName'),'-data_',copyIndex())]",
             "location": "[parameters('location')]",
             "sku": {
                 "name": "Premium_LRS"
