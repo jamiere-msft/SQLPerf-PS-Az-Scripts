@@ -120,7 +120,7 @@
                     },
                     "osDisk": {
                         "osType": "Windows",
-                        "name": "[concat(parameters('virtualMachines_SQLPerfARM_VM_name'), '_OsDisk_1_cb5d50d2553e45c29ef8c7b3dcfa86f8')]",
+                        "name": "[concat(parameters('virtualMachines_SQLPerfARM_VM_name'), '_OsDisk_1')]",
                         "createOption": "FromImage",
                         "caching": "ReadWrite",
                         "managedDisk": {
