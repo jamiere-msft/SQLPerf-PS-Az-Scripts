@@ -6,7 +6,8 @@
             "type": "string"
         },
         "virtualMachineSize": {
-            "type": "String"
+            "type": "String",
+            "defaultValue": "Standard_D4as_v4"
             }
         },
         "virtualMachineName": {
