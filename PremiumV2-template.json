@@ -23,11 +23,7 @@
             }
         },
         "virtualMachineSize": {
-            "defaultValue": "Standard_E64s_v5",
-            "type": "String",
-            "metadata": {
-                "description": "The virtual machine size. Enter a VM from the list supported at Preview."
-            }
+            "type": "String"
         },
         "operatingSystem": {
             "defaultValue": "WindowsServer2022",
