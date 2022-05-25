@@ -22,9 +22,7 @@
             }
         },
         "virtualMachineSize": {
-            "type": "String",
-            "metadata": {
-                "description": "The virtual machine size."
+            "type": "String"
             }
         },
         "operatingSystem": {
