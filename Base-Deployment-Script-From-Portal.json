@@ -90,6 +90,8 @@
                 "PublisherValue": "MicrosoftWindowsServer",
                 "OfferValue": "WindowsServer",
                 "SkuValue": "2019-Datacenter-With-Containers-GS"
+            },
+            "networkInterfaceName": "[toLower(parameters('virtualMachineName'))]",
             }
         }
     },
@@ -149,7 +151,7 @@
                 "networkProfile": {
                     "networkInterfaces": [
                         {
-                            "id": "[concat(ToLower(parameters('virtualMachineName')),parameters('networkInterfaceSuffix'))]",
+                            "id": "[variables('networkInterfaceName')]",
                             "properties": {
                                 "deleteOption": "Delete"
                             }
