@@ -124,8 +124,7 @@
                         "createOption": "FromImage",
                         "caching": "ReadWrite",
                         "managedDisk": {
-                            "storageAccountType": "Premium_LRS",
-                            "id": "[resourceId('Microsoft.Compute/disks', concat(parameters('virtualMachines_SQLPerfARM_VM_name'), '_OsDisk'))]"
+                            "storageAccountType": "Premium_LRS"
                         },
                         "deleteOption": "Delete",
                         "diskSizeGB": 127
