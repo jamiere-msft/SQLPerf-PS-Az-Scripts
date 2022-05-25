@@ -5,6 +5,10 @@
         "resourceGroupName": {
             "type": "string"
         },
+        "virtualMachineSize": {
+            "type": "String"
+            }
+        },
         "virtualMachineName": {
             "type": "String"
         },
@@ -19,10 +23,6 @@
             "type": "secureString",
             "metadata": {
                 "description": "The password for the admin username."
-            }
-        },
-        "virtualMachineSize": {
-            "type": "String"
             }
         },
         "operatingSystem": {
