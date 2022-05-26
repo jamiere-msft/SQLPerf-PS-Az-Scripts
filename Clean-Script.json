@@ -10,6 +10,13 @@
             "defaultValue": "Standard_DS4_v2",
             "type": "String"
         },
+        "adminUserName": {
+            "defaultValue": "azureuser",
+            "type": "String"
+        },
+        "adminPassword": {
+            "type": "secureString"
+        },
         "location": {
             "defaultValue": "westus3",
             "type": "string"
@@ -772,7 +779,8 @@
                 },
                 "osProfile": {
                     "computerName": "[parameters('virtualMachineName')]",
-                    "adminUsername": "azureuser",
+                    "adminUsername": "[parameters('adminuserName')]",
+                    "adminPassword": "[parameters('adminPassword')]",
                     "windowsConfiguration": {
                         "provisionVMAgent": true,
                         "enableAutomaticUpdates": true,
