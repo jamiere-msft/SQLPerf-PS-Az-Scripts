@@ -2,10 +2,14 @@
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "virtualMachines_SQLPerfARM_VM_name": {
+        "virtualMachineName": {
             "defaultValue": "SQLPerfARM-VM",
             "type": "String"
-        },
+        },  
+        "virtualMachineSize": {
+            "defaultValue": "StandardDS4_v3",
+            "type": "String"
+        },  
         "networkInterfaces_sqlperfarm_vm204_name": {
             "defaultValue": "sqlperfarm-vm204",
             "type": "String"
@@ -14,11 +18,11 @@
             "defaultValue": "SQLPerfARM-VM-ip",
             "type": "String"
         },
-        "virtualNetworks_SQLPerfARMTest_vnet_name": {
+        "virtualNetworkName": {
             "defaultValue": "SQLPerfARMTest-vnet",
             "type": "String"
         },
-        "networkSecurityGroups_SQLPerfARM_VM_nsg_name": {
+        "networkSecurityGroupName": {
             "defaultValue": "SQLPerfARM-VM-nsg",
             "type": "String"
         },
@@ -502,7 +506,7 @@
         {
             "type": "Microsoft.Network/networkSecurityGroups",
             "apiVersion": "2020-11-01",
-            "name": "[parameters('networkSecurityGroups_SQLPerfARM_VM_nsg_name')]",
+            "name": "[parameters('networkSecurityGroupName')]",
             "location": "westus3",
             "properties": {
                 "securityRules": [
@@ -723,7 +727,7 @@
         {
             "type": "Microsoft.Compute/virtualMachines",
             "apiVersion": "2022-03-01",
-            "name": "[parameters('virtualMachines_SQLPerfARM_VM_name')]",
+            "name": "[parameters('virtualMachineName')]",
             "location": "westus3",
             "dependsOn": [
                 "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_sqlperfarm_vm204_name'))]"
@@ -740,7 +744,7 @@
             },
             "properties": {
                 "hardwareProfile": {
-                    "vmSize": "Standard_D4s_v3"
+                    "vmSize": "[parameters('virtualMachineSize')]"
                 },
                 "storageProfile": {
                     "imageReference": {
@@ -751,12 +755,12 @@
                     },
                     "osDisk": {
                         "osType": "Windows",
-                        "name": "[concat(parameters('virtualMachines_SQLPerfARM_VM_name'), '_OsDisk')]",
+                        "name": "[concat(parameters('virtualMachineName'), '_OsDisk')]",
                         "createOption": "FromImage",
                         "caching": "ReadWrite",
                         "managedDisk": {
                             "storageAccountType": "Premium_LRS",
-                            "id": "[resourceId('Microsoft.Compute/disks', concat(parameters('virtualMachines_SQLPerfARM_VM_name'), '_OsDisk'))]"
+                            "id": "[resourceId('Microsoft.Compute/disks', concat(parameters('virtualMachineName'), '_OsDisk'))]"
                         },
                         "deleteOption": "Delete",
                         "diskSizeGB": 127
@@ -764,7 +768,7 @@
                     "dataDisks": []
                 },
                 "osProfile": {
-                    "computerName": "[parameters('virtualMachines_SQLPerfARM_VM_name')]",
+                    "computerName": "[parameters('virtualMachineName')]",
                     "adminUsername": "azureuser",
                     "windowsConfiguration": {
                         "provisionVMAgent": true,
@@ -845,9 +849,9 @@
         {
             "type": "Microsoft.Network/networkSecurityGroups/securityRules",
             "apiVersion": "2020-11-01",
-            "name": "[concat(parameters('networkSecurityGroups_SQLPerfARM_VM_nsg_name'), '/NRMS-Rule-101')]",
+            "name": "[concat(parameters('networkSecurityGroupName'), '/NRMS-Rule-101')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_SQLPerfARM_VM_nsg_name'))]"
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroupName'))]"
             ],
             "properties": {
                 "description": "Created by Azure Core Security managed policy, placeholder you can delete, please see aka.ms/cainsgpolicy",
@@ -914,9 +918,9 @@
         {
             "type": "Microsoft.Network/networkSecurityGroups/securityRules",
             "apiVersion": "2020-11-01",
-            "name": "[concat(parameters('networkSecurityGroups_SQLPerfARM_VM_nsg_name'), '/NRMS-Rule-103')]",
+            "name": "[concat(parameters('networkSecurityGroupName'), '/NRMS-Rule-103')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_SQLPerfARM_VM_nsg_name'))]"
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroupName'))]"
             ],
             "properties": {
                 "description": "Created by Azure Core Security managed policy, rule can be deleted but do not change source ips, please see aka.ms/cainsgpolicy",
@@ -983,9 +987,9 @@
         {
             "type": "Microsoft.Network/networkSecurityGroups/securityRules",
             "apiVersion": "2020-11-01",
-            "name": "[concat(parameters('networkSecurityGroups_SQLPerfARM_VM_nsg_name'), '/NRMS-Rule-104')]",
+            "name": "[concat(parameters('networkSecurityGroupName'), '/NRMS-Rule-104')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_SQLPerfARM_VM_nsg_name'))]"
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroupName'))]"
             ],
             "properties": {
                 "description": "Created by Azure Core Security managed policy, rule can be deleted but do not change source ips, please see aka.ms/cainsgpolicy",
@@ -1082,9 +1086,9 @@
         {
             "type": "Microsoft.Network/networkSecurityGroups/securityRules",
             "apiVersion": "2020-11-01",
-            "name": "[concat(parameters('networkSecurityGroups_SQLPerfARM_VM_nsg_name'), '/NRMS-Rule-105')]",
+            "name": "[concat(parameters('networkSecurityGroupName'), '/NRMS-Rule-105')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_SQLPerfARM_VM_nsg_name'))]"
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroupName'))]"
             ],
             "properties": {
                 "description": "DO NOT DELETE - Will result in ICM Sev 2 - Azure Core Security, see aka.ms/cainsgpolicy",
@@ -1170,9 +1174,9 @@
         {
             "type": "Microsoft.Network/networkSecurityGroups/securityRules",
             "apiVersion": "2020-11-01",
-            "name": "[concat(parameters('networkSecurityGroups_SQLPerfARM_VM_nsg_name'), '/NRMS-Rule-106')]",
+            "name": "[concat(parameters('networkSecurityGroupName'), '/NRMS-Rule-106')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_SQLPerfARM_VM_nsg_name'))]"
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroupName'))]"
             ],
             "properties": {
                 "description": "DO NOT DELETE - Will result in ICM Sev 2 - Azure Core Security, see aka.ms/cainsgpolicy",
@@ -1251,9 +1255,9 @@
         {
             "type": "Microsoft.Network/networkSecurityGroups/securityRules",
             "apiVersion": "2020-11-01",
-            "name": "[concat(parameters('networkSecurityGroups_SQLPerfARM_VM_nsg_name'), '/NRMS-Rule-107')]",
+            "name": "[concat(parameters('networkSecurityGroupName'), '/NRMS-Rule-107')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_SQLPerfARM_VM_nsg_name'))]"
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroupName'))]"
             ],
             "properties": {
                 "description": "DO NOT DELETE - Will result in ICM Sev 2 - Azure Core Security, see aka.ms/cainsgpolicy",
@@ -1353,9 +1357,9 @@
         {
             "type": "Microsoft.Network/networkSecurityGroups/securityRules",
             "apiVersion": "2020-11-01",
-            "name": "[concat(parameters('networkSecurityGroups_SQLPerfARM_VM_nsg_name'), '/NRMS-Rule-108')]",
+            "name": "[concat(parameters('networkSecurityGroupName'), '/NRMS-Rule-108')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_SQLPerfARM_VM_nsg_name'))]"
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroupName'))]"
             ],
             "properties": {
                 "description": "DO NOT DELETE - Will result in ICM Sev 2 - Azure Core Security, see aka.ms/cainsgpolicy",
@@ -1464,9 +1468,9 @@
         {
             "type": "Microsoft.Network/networkSecurityGroups/securityRules",
             "apiVersion": "2020-11-01",
-            "name": "[concat(parameters('networkSecurityGroups_SQLPerfARM_VM_nsg_name'), '/NRMS-Rule-109')]",
+            "name": "[concat(parameters('networkSecurityGroupName'), '/NRMS-Rule-109')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_SQLPerfARM_VM_nsg_name'))]"
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroupName'))]"
             ],
             "properties": {
                 "description": "DO NOT DELETE - Will result in ICM Sev 2 - Azure Core Security, see aka.ms/cainsgpolicy",
@@ -1554,7 +1558,7 @@
         {
             "type": "Microsoft.Network/virtualNetworks",
             "apiVersion": "2020-11-01",
-            "name": "[parameters('virtualNetworks_SQLPerfARMTest_vnet_name')]",
+            "name": "[parameters('virtualNetworkName')]",
             "location": "westus3",
             "dependsOn": [
                 "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_NRMS_ra32xktn42ewgSQLPerfARMTest_vnet_name'))]"
@@ -1586,9 +1590,9 @@
         {
             "type": "Microsoft.Network/virtualNetworks/subnets",
             "apiVersion": "2020-11-01",
-            "name": "[concat(parameters('virtualNetworks_SQLPerfARMTest_vnet_name'), '/default')]",
+            "name": "[concat(parameters('virtualNetworkName'), '/default')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_SQLPerfARMTest_vnet_name'))]",
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]",
                 "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_NRMS_ra32xktn42ewgSQLPerfARMTest_vnet_name'))]"
             ],
             "properties": {
@@ -1608,8 +1612,8 @@
             "location": "westus3",
             "dependsOn": [
                 "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_SQLPerfARM_VM_ip_name'))]",
-                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_SQLPerfARMTest_vnet_name'), 'default')]",
-                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_SQLPerfARM_VM_nsg_name'))]"
+                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworkName'), 'default')]",
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroupName'))]"
             ],
             "properties": {
                 "ipConfigurations": [
@@ -1622,7 +1626,7 @@
                                 "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_SQLPerfARM_VM_ip_name'))]"
                             },
                             "subnet": {
-                                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_SQLPerfARMTest_vnet_name'), 'default')]"
+                                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworkName'), 'default')]"
                             },
                             "primary": true,
                             "privateIPAddressVersion": "IPv4"
@@ -1635,7 +1639,7 @@
                 "enableAcceleratedNetworking": true,
                 "enableIPForwarding": false,
                 "networkSecurityGroup": {
-                    "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_SQLPerfARM_VM_nsg_name'))]"
+                    "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroupName'))]"
                 }
             }
         }
