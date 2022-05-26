@@ -7,7 +7,7 @@
             "type": "String"
         },  
         "virtualMachineSize": {
-            "defaultValue": "StandardDS4_v3",
+            "defaultValue": "Standard_DS4_v2",
             "type": "String"
         },
         "location": {
