@@ -9,6 +9,10 @@
         "virtualMachineSize": {
             "defaultValue": "StandardDS4_v3",
             "type": "String"
+        },
+        "location": {
+            "defaultValue": "westus3",
+            "type": "string"
         },  
         "networkInterfaces_sqlperfarm_vm204_name": {
             "defaultValue": "sqlperfarm-vm204",
@@ -41,7 +45,7 @@
             "type": "Microsoft.Network/networkSecurityGroups",
             "apiVersion": "2020-11-01",
             "name": "[parameters('networkSecurityGroups_NRMS_ra32xktn42ewgSQLPerfARMTest_vnet_name')]",
-            "location": "westus3",
+            "location": "[parameters('location')]",
             "tags": {
                 "Creator": "Automatically added by NRMS Azure Policy",
                 "NRMS-Info": "http://aka.ms/nrms",
@@ -298,7 +302,7 @@
             "type": "Microsoft.Network/networkSecurityGroups",
             "apiVersion": "2020-11-01",
             "name": "[parameters('networkSecurityGroups_NRMS_wt5v7r3z4sw7kSQLPerfARMTest_vnet_default_name')]",
-            "location": "westus3",
+            "location": "[parameters('location')]",
             "tags": {
                 "Creator": "Automatically added by NRMS Azure Policy",
                 "NRMS-Info": "http://aka.ms/nrms",
@@ -507,7 +511,7 @@
             "type": "Microsoft.Network/networkSecurityGroups",
             "apiVersion": "2020-11-01",
             "name": "[parameters('networkSecurityGroupName')]",
-            "location": "westus3",
+            "location": "[parameters('location')]",
             "properties": {
                 "securityRules": [
                     {
@@ -711,7 +715,7 @@
             "type": "Microsoft.Network/publicIPAddresses",
             "apiVersion": "2020-11-01",
             "name": "[parameters('publicIPAddresses_SQLPerfARM_VM_ip_name')]",
-            "location": "westus3",
+            "location": "[parameters('location')]",
             "sku": {
                 "name": "Basic",
                 "tier": "Regional"
@@ -728,7 +732,7 @@
             "type": "Microsoft.Compute/virtualMachines",
             "apiVersion": "2022-03-01",
             "name": "[parameters('virtualMachineName')]",
-            "location": "westus3",
+            "location": "[parameters('location')]",
             "dependsOn": [
                 "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_sqlperfarm_vm204_name'))]"
             ],
@@ -1559,7 +1563,7 @@
             "type": "Microsoft.Network/virtualNetworks",
             "apiVersion": "2020-11-01",
             "name": "[parameters('virtualNetworkName')]",
-            "location": "westus3",
+            "location": "[parameters('location')]",
             "dependsOn": [
                 "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_NRMS_ra32xktn42ewgSQLPerfARMTest_vnet_name'))]"
             ],
@@ -1609,7 +1613,7 @@
             "type": "Microsoft.Network/networkInterfaces",
             "apiVersion": "2020-11-01",
             "name": "[parameters('networkInterfaces_sqlperfarm_vm204_name')]",
-            "location": "westus3",
+            "location": "[parameters('location')]",
             "dependsOn": [
                 "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_SQLPerfARM_VM_ip_name'))]",
                 "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworkName'), 'default')]",
