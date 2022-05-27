@@ -3,7 +3,6 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "virtualMachineName": {
-            "defaultValue": "SQLPerfARM-VM",
             "type": "String",
             "metadata": {
                 "description": "The name of the new VM."
@@ -29,7 +28,6 @@
             }
         },
         "location": {
-            "defaultValue": "westus3",
             "type": "string",
             "metadata": {
                 "description": "The location/region for the VM."
