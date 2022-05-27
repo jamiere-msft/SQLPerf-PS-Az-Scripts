@@ -33,7 +33,7 @@
                 "description": "The location/region for the VM."
             }
         },
-        "dataDisksCount": {
+        "dataDiskCount": {
            "defaultValue": 0,
             "type": "Int",
             "metadata": {
@@ -809,7 +809,7 @@
                     "copy": [
                         {
                             "name": "dataDisks",
-                            "count": "[parameters('dataDisksCount')]",
+                            "count": "[parameters('dataDiskCount')]",
                             "input": {
                                 "name": "[concat(parameters('virtualMachineName'),'-data-',copyIndex('dataDisks'))]",
                                 "lun": "[copyIndex('dataDisks')]",
