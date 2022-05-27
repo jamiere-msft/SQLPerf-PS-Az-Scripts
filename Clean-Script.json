@@ -52,11 +52,9 @@
             "type": "String"
         },
         "networkSecurityGroups_NRMS_vnet_name": {
-            "defaultValue": "NRMS-<rg>-NSG-vnet",
             "type": "String"
         },
         "networkSecurityGroups_NRMS_vnet_default_name": {
-            "defaultValue": "NRMS-<rg>-NSG-vnet-default",
             "type": "String"
         }        
     },
