@@ -819,7 +819,7 @@
                                         "deleteOption": "Delete",
                                         "managedDisk": {
                                             "storageAccountType": "Premium_LRS",
-                                            "id": "[resourceId('Microsoft.Compute/disks/', concat(parameters('virtualMachineName'), '-datadisk-', copyIndex('dataDisks'))]"
+                                            "id": "[resourceId('Microsoft.Compute/disks/', concat(parameters('virtualMachineName'), '-datadisk-', copyIndex('dataDisks')))]"
                                         }
                                     }
                                 }
