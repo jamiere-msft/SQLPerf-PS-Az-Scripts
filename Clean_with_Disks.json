@@ -34,6 +34,39 @@
             "metadata": {
                 "description": "The location/region for the VM."
             }
+        },"$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "virtualMachineName": {
+            "type": "String",
+            "metadata": {
+                "description": "The name of the new VM."
+            }
+        },  
+        "virtualMachineSize": {
+            "type": "String",
+            "metadata": {
+                "description": "The size of the new VM."
+            }
+        },  
+        "adminUserName": {
+            "defaultValue": "azureuser",
+            "type": "String",
+            "metadata": {
+                "description": "The admin user name for the VM."
+            }
+        },
+        "adminPassword": {
+            "type": "secureString",
+            "metadata": {
+                "description": "The admin user password for the VM."
+            }
+        },
+        "location": {
+            "type": "string",
+            "metadata": {
+                "description": "The location/region for the VM."
+            }
         },
         "dataDisksCount": {
            "defaultValue": 0,
