@@ -3,7 +3,6 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "virtualMachineName": {
-            "defaultValue": "SQLPerfARM-VM",
             "type": "String",
             "metadata": {
                 "description": "The name of the new VM."
@@ -29,14 +28,12 @@
             }
         },
         "location": {
-            "defaultValue": "westus3",
             "type": "string",
             "metadata": {
                 "description": "The location/region for the VM."
             }
-        },"$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
+        },
+        "parameters": {
         "virtualMachineName": {
             "type": "String",
             "metadata": {
@@ -109,9 +106,7 @@
             "type": "Bool",
             "metadata": {
             "description": "Enable Accelerated Networking on the VM."
-        }        
-    }
-
+            }        
         },
     "variables": {},
     "resources": [
