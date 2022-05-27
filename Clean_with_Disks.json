@@ -807,22 +807,23 @@
                         "diskSizeGB": 127
                     },
                     "copy": [
-                        {
-                            "name": "dataDisks",
-                            "count": "[parameters('dataDiskCount')]",
-                            "input": {
-                                "name": "[concat(parameters('virtualMachineName'),'-data-',copyIndex('dataDisks'))]",
-                                "lun": "[copyIndex('dataDisks')]",
-                                "createOption": "attach",
-                                "managedDisk": {
-                                    "storageAccountType": "Premium_LRS",
-                                    "id": "[resourceId('Microsoft.Compute/disks/', concat(parameters('virtualMachineName'),'-data-',copyIndex('dataDisks')))]"
-                                },
-                                "deleteOption": "Delete",
-                                "diskSizeGB": "[parameters('dataDiskSizeInGB')]"
-                            }
-                        }
-                    ]
+                                {
+                                    "name": "dataDisks",
+                                    "count": "[parameters('dataDiskCount')]",
+                                    "input": {
+                                        "caching": "[variables('diskCaching')]",
+                                        "diskSizeGB": "[variables('dataDiskSizeInGB')]",
+                                        "lun": "[copyIndex('dataDisks')]",
+                                        "name": "[concat(parameters('virtualMachineName'), '-datadisk-', copyIndex('dataDisks'))]",
+                                        "createOption": "Attach",
+                                        "deleteOption": "Delete",
+                                        "managedDisk": {
+                                            "storageAccountType": "Premium_LRS",
+                                            "id": "[resourceId('Microsoft.Compute/disks/', concat(parameters('virtualMachineName'), '-datadisk-', copyIndex('dataDisks'))]"
+                                        }
+                                    }
+                                }
+                        ]
                 },
                     "dataDisks": [
                         {
@@ -839,20 +840,6 @@
                             "diskSizeGB": 1024,
                             "toBeDetached": false
                         },
-                        {
-                            "lun": 1,
-                            "name": "[concat(parameters('virtualMachineName'), '_dataDisk_2')]",
-                            "createOption": "Attach",
-                            "caching": "None",
-                            "writeAcceleratorEnabled": false,
-                            "managedDisk": {
-                                "storageAccountType": "Premium_LRS",
-                                "id": "[resourceId('Microsoft.Compute/disks', 'sqlperfarmvm_datadisk_2')]"
-                            },
-                            "deleteOption": "Delete",
-                            "diskSizeGB": 1024,
-                            "toBeDetached": false
-                        }
                     ]
                 },
                 "osProfile": {
