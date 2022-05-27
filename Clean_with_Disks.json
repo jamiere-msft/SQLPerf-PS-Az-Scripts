@@ -825,23 +825,6 @@
                                 }
                         ]
                 },
-                    "dataDisks": [
-                        {
-                            "lun": 0,
-                            "name": "[concat(parameters('virtualMachineName'), '_dataDisk_1')]",
-                            "createOption": "Attach",
-                            "caching": "ReadOnly",
-                            "writeAcceleratorEnabled": false,
-                            "managedDisk": {
-                                "storageAccountType": "Premium_LRS",
-                                "id": "[resourceId('Microsoft.Compute/disks', 'sqlperfarmvm_datadisk_1')]"
-                            },
-                            "deleteOption": "Delete",
-                            "diskSizeGB": 1024,
-                            "toBeDetached": false
-                        },
-                    ]
-                },
                 "osProfile": {
                     "computerName": "[parameters('virtualMachineName')]",
                     "adminUsername": "[parameters('adminuserName')]",
