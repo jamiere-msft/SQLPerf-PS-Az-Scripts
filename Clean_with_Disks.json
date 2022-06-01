@@ -47,10 +47,10 @@
                 "description": "Data Disk size in GiB."
             }
         },
-        "networkInterfacesName": {
-            "defaultValue": "sqlperfarm-vm204",
-            "type": "String"
-        }, 
+        "dataDiskCaching": {
+            "defaultValue": "Read-Only",
+            "type": "string"
+        },
         "publicIPAddresses_SQLPerfARM_VM_ip_name": {
             "defaultValue": "SQLPerfARM-VM-ip",
             "type": "String"
@@ -811,8 +811,8 @@
                                     "name": "dataDisks",
                                     "count": "[parameters('dataDiskCount')]",
                                     "input": {
-                                        "caching": "[variables('diskCaching')]",
-                                        "diskSizeGB": "[variables('dataDiskSizeInGB')]",
+                                        "caching": "[parameters('dataDiskCaching')]",
+                                        "diskSizeGB": "[parameters('dataDiskSizeInGB')]",
                                         "lun": "[copyIndex('dataDisks')]",
                                         "name": "[concat(parameters('virtualMachineName'), '-datadisk-', copyIndex('dataDisks'))]",
                                         "createOption": "Attach",
@@ -1693,7 +1693,7 @@
                 "dnsSettings": {
                     "dnsServers": []
                 },
-                "enableAcceleratedNetworking": true,
+                "enableAcceleratedNetworking": "[parameters('useAcceleratedNetworking')]",
                 "enableIPForwarding": false,
                 "networkSecurityGroup": {
                     "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroupName'))]"
@@ -1702,4 +1702,3 @@
         }
     ]
 }
- 
