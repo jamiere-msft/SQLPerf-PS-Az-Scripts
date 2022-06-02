@@ -35,21 +35,16 @@
             "location": "[parameters('location')]",
             "properties": {
                 "storageProfile": {
-                    "copy": [
-                        {
-                            "name": "dataDisks",
-                            "input": {
+                    "name": "dataDisks",
+                    "input": {
                                 "name": "[parameters('dataDiskName')]",
                                 "lun": "[parameters('lun')]",
                                 "createOption": "Attach",
                                 "managedDisk": {
                                     "storageAccountType": "[parameters('diskStorageType')]"
-                                }
-                            }
-                        }
-                    ]
+                                  }
+                             }
+                    }
                 }
-            }
-        }
-    ]
+        ]
 }
