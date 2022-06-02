@@ -37,8 +37,8 @@
                 "storageProfile": {
                     "name": "dataDisks",
                     "input": {
-                                "name": "[parameters('dataDiskName')]",
-                                "lun": "[parameters('lun')]",
+                                "name": "gltSDP1-datadisk-28",
+                                "lun": "28",
                                 "createOption": "Attach"
                              }
                     }
