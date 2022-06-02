@@ -237,7 +237,7 @@
                         "name": "[parameters('dataDiskName11')]",
                         "createOption": "attach",
                         "managedDisk": {
-                            "id": "[resourceId('Microsoft.Compute/disks/', parameters('dataDiskName1'))]"
+                            "id": "[resourceId('Microsoft.Compute/disks/', parameters('dataDiskName11'))]"
                         }
                     },
                     {
