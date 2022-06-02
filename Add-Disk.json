@@ -40,7 +40,7 @@
                             "name": "dataDisks",
                             "input": {
                                 "name": "[parameters('dataDiskName')]",
-                                "lun": "[copyIndex('dataDisks')]",
+                                "lun": "[parameters('lun')]",
                                 "createOption": "Attach",
                                 "managedDisk": {
                                     "storageAccountType": "[parameters('diskStorageType')]"
