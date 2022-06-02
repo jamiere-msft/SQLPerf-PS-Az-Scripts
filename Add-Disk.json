@@ -8,8 +8,7 @@
         },
         "diskStorageType": {
             "defaultValue": "Premium SSD LRS",
- 
-            "type": "String"
+             "type": "String"
         },
         "dataDiskCount": {
             "defaultValue": 1,
@@ -18,6 +17,10 @@
         "dataDiskName": {
             "defaultValue": "gltSDP1-datadisk-28",
             "type": "String"
+        },
+        "lun": {
+            "defaultValue": 28,
+            "type": "Int"
         },
         "location": {
             "defaultValue": "centralus",
@@ -35,7 +38,6 @@
                     "copy": [
                         {
                             "name": "dataDisks",
-                            "count": "[parameters('dataDiskCount')]",
                             "input": {
                                 "name": "[parameters('dataDiskName')]",
                                 "lun": "[copyIndex('dataDisks')]",
