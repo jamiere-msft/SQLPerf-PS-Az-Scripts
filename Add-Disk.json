@@ -6,22 +6,6 @@
             "default": "gltSDP1",
             "type": "String"
         },
-        "diskStorageType": {
-            "defaultValue": "Premium SSD LRS",
-             "type": "String"
-        },
-        "dataDiskCount": {
-            "defaultValue": 1,
-            "type": "Int"
-        },
-        "dataDiskName": {
-            "defaultValue": "gltSDP1-datadisk-28",
-            "type": "String"
-        },
-        "lun": {
-            "defaultValue": 28,
-            "type": "Int"
-        },
         "location": {
             "defaultValue": "centralus",
             "type": "String"
