@@ -16,7 +16,7 @@
             "type": "Int"
         },
         "dataDiskName": {
-            "defaultValue": "gltSDP1-datadisk-27",
+            "defaultValue": "gltSDP1-datadisk-28",
             "type": "String"
         },
         "location": {
