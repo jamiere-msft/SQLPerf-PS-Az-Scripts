@@ -2,9 +2,17 @@
     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "vmName": {
+        "virtualMachineName": {
             "default": "gltSDP1",
             "type": "String"
+        },
+        "dataDiskName1": {
+            "default": "gptSDP1-datadisk-28",
+            "type": "string"
+        },
+        "dataDiskName2": {
+            "default": "gptSDP1-datadisk-29",
+            "type": "string"
         },
         "location": {
             "defaultValue": "centralus",
@@ -15,18 +23,30 @@
         {
             "type": "Microsoft.Compute/virtualMachines",
             "apiVersion": "2018-06-01",
-            "name": "[parameters('vmName')]",
+            "name": "[parameters('virtualMachineName')]",
             "location": "[parameters('location')]",
             "properties": {
                 "storageProfile": {
-                    "name": "dataDisks",
-                    "input": {
-                                "name": "gltSDP1-datadisk-28",
-                                "lun": "28",
-                                "createOption": "Attach"
-                             }
+                    "datadisks": [
+                    {
+                        "lun": 28,
+                        "name": "[parameters('dataDiskName1')]",
+                        "createOption": "attach",
+                        "managedDisk": {
+                            "id": "[resourceId('Microsoft.Compute/disks/', parameters('dataDiskName1'))]"
+                        }
+                    },
+                    {
+                        "lun": 29,
+                        "name": "[parameters('dataDiskName2')]",
+                        "createOption": "attach",
+                        "managedDisk": {
+                            "id": "[resourceId('Microsoft.Compute/disks/', parameters('dataDiskName2'))]"
+                        }
                     }
+                    ]
                 }
+            }
         }
     ]
 }
