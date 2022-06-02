@@ -6,12 +6,128 @@
             "default": "gltSDP1",
             "type": "String"
         },
+        "dataDiskName0": {
+            "default": "gptSDP1-datadisk-0",
+            "type": "string"
+        },
         "dataDiskName1": {
-            "default": "gptSDP1-datadisk-28",
+            "default": "gptSDP1-datadisk-1",
             "type": "string"
         },
         "dataDiskName2": {
+            "default": "gptSDP1-datadisk-2",
+            "type": "string"
+        },
+        "dataDiskName3": {
+            "default": "gptSDP1-datadisk-3",
+            "type": "string"
+        },
+        "dataDiskName4": {
+            "default": "gptSDP1-datadisk-4",
+            "type": "string"
+        },
+        "dataDiskName5": {
+            "default": "gptSDP1-datadisk-5",
+            "type": "string"
+        },
+        "dataDiskName6": {
+            "default": "gptSDP1-datadisk-6",
+            "type": "string"
+        },
+        "dataDiskName7": {
+            "default": "gptSDP1-datadisk-7",
+            "type": "string"
+        },
+        "dataDiskName8": {
+            "default": "gptSDP1-datadisk-8",
+            "type": "string"
+        },
+        "dataDiskName9": {
+            "default": "gptSDP1-datadisk-9",
+            "type": "string"
+        },
+        "dataDiskName10": {
+            "default": "gptSDP1-datadisk-10",
+            "type": "string"
+        },
+        "dataDiskName11": {
+            "default": "gptSDP1-datadisk-11",
+            "type": "string"
+        },
+        "dataDiskName12": {
+            "default": "gptSDP1-datadisk-12",
+            "type": "string"
+        },
+        "dataDiskName13": {
+            "default": "gptSDP1-datadisk-13",
+            "type": "string"
+        },
+        "dataDiskName14": {
+            "default": "gptSDP1-datadisk-14",
+            "type": "string"
+        },
+        "dataDiskName15": {
+            "default": "gptSDP1-datadisk-15",
+            "type": "string"
+        },
+        "dataDiskName16": {
+            "default": "gptSDP1-datadisk-16",
+            "type": "string"
+        },
+        "dataDiskName17": {
+            "default": "gptSDP1-datadisk-17",
+            "type": "string"
+        },
+        "dataDiskName18": {
+            "default": "gptSDP1-datadisk-18",
+            "type": "string"
+        },
+        "dataDiskName19": {
+            "default": "gptSDP1-datadisk-19",
+            "type": "string"
+        },
+        "dataDiskName20": {
+            "default": "gptSDP1-datadisk-20",
+            "type": "string"
+        },
+        "dataDiskName21": {
+            "default": "gptSDP1-datadisk-21",
+            "type": "string"
+        },
+        "dataDiskName22": {
+            "default": "gptSDP1-datadisk-22",
+            "type": "string"
+        },
+        "dataDiskName23": {
+            "default": "gptSDP1-datadisk-23",
+            "type": "string"
+        },
+        "dataDiskName24": {
+            "default": "gptSDP1-datadisk-24",
+            "type": "string"
+        },
+        "dataDiskName25": {
+            "default": "gptSDP1-datadisk-25",
+            "type": "string"
+        },
+        "dataDiskName26": {
+            "default": "gptSDP1-datadisk-26",
+            "type": "string"
+        },
+        "dataDiskName27": {
+            "default": "gptSDP1-datadisk-27",
+            "type": "string"
+        },
+        "dataDiskName28": {
+            "default": "gptSDP1-datadisk-28",
+            "type": "string"
+        },
+        "dataDiskName29": {
             "default": "gptSDP1-datadisk-29",
+            "type": "string"
+        },
+        "dataDiskName30": {
+            "default": "gptSDP1-datadisk-30",
             "type": "string"
         },
         "location": {
@@ -29,7 +145,15 @@
                 "storageProfile": {
                     "datadisks": [
                     {
-                        "lun": 28,
+                        "lun": 0,
+                        "name": "[parameters('dataDiskName0')]",
+                        "createOption": "attach",
+                        "managedDisk": {
+                            "id": "[resourceId('Microsoft.Compute/disks/', parameters('dataDiskName0'))]"
+                        }
+                    },
+                    {
+                        "lun": 1,
                         "name": "[parameters('dataDiskName1')]",
                         "createOption": "attach",
                         "managedDisk": {
@@ -37,13 +161,238 @@
                         }
                     },
                     {
-                        "lun": 29,
+                        "lun": 2,
                         "name": "[parameters('dataDiskName2')]",
                         "createOption": "attach",
                         "managedDisk": {
                             "id": "[resourceId('Microsoft.Compute/disks/', parameters('dataDiskName2'))]"
                         }
+                    },
+                    {
+                        "lun": 3,
+                        "name": "[parameters('dataDiskName3')]",
+                        "createOption": "attach",
+                        "managedDisk": {
+                            "id": "[resourceId('Microsoft.Compute/disks/', parameters('dataDiskName3'))]"
+                        }
+                    },
+                    {
+                        "lun": 4,
+                        "name": "[parameters('dataDiskName4')]",
+                        "createOption": "attach",
+                        "managedDisk": {
+                            "id": "[resourceId('Microsoft.Compute/disks/', parameters('dataDiskName4'))]"
+                        }
+                    },
+                    {
+                        "lun": 5,
+                        "name": "[parameters('dataDiskName5')]",
+                        "createOption": "attach",
+                        "managedDisk": {
+                            "id": "[resourceId('Microsoft.Compute/disks/', parameters('dataDiskName5'))]"
+                        }
+                    },
+                    {
+                        "lun": 6,
+                        "name": "[parameters('dataDiskName6')]",
+                        "createOption": "attach",
+                        "managedDisk": {
+                            "id": "[resourceId('Microsoft.Compute/disks/', parameters('dataDiskName6'))]"
+                        }
+                    },
+                    {
+                        "lun": 7,
+                        "name": "[parameters('dataDiskName7')]",
+                        "createOption": "attach",
+                        "managedDisk": {
+                            "id": "[resourceId('Microsoft.Compute/disks/', parameters('dataDiskName7'))]"
+                        }
+                    },
+                    {
+                        "lun": 8,
+                        "name": "[parameters('dataDiskName8')]",
+                        "createOption": "attach",
+                        "managedDisk": {
+                            "id": "[resourceId('Microsoft.Compute/disks/', parameters('dataDiskName8'))]"
+                        }
+                    },
+                    {
+                        "lun": 9,
+                        "name": "[parameters('dataDiskName9')]",
+                        "createOption": "attach",
+                        "managedDisk": {
+                            "id": "[resourceId('Microsoft.Compute/disks/', parameters('dataDiskName9'))]"
+                        }
+                    },
+                    {
+                        "lun": 10,
+                        "name": "[parameters('dataDiskName10')]",
+                        "createOption": "attach",
+                        "managedDisk": {
+                            "id": "[resourceId('Microsoft.Compute/disks/', parameters('dataDiskName10'))]"
+                        }
+                    },
+                    {
+                        "lun": 11,
+                        "name": "[parameters('dataDiskName11')]",
+                        "createOption": "attach",
+                        "managedDisk": {
+                            "id": "[resourceId('Microsoft.Compute/disks/', parameters('dataDiskName1'))]"
+                        }
+                    },
+                    {
+                        "lun": 12,
+                        "name": "[parameters('dataDiskName12')]",
+                        "createOption": "attach",
+                        "managedDisk": {
+                            "id": "[resourceId('Microsoft.Compute/disks/', parameters('dataDiskName12'))]"
+                        }
+                    },
+                    {
+                        "lun": 13,
+                        "name": "[parameters('dataDiskName13')]",
+                        "createOption": "attach",
+                        "managedDisk": {
+                            "id": "[resourceId('Microsoft.Compute/disks/', parameters('dataDiskName13'))]"
+                        }
+                    },
+                    {
+                        "lun": 14,
+                        "name": "[parameters('dataDiskName14')]",
+                        "createOption": "attach",
+                        "managedDisk": {
+                            "id": "[resourceId('Microsoft.Compute/disks/', parameters('dataDiskName14'))]"
+                        }
+                    },
+                    {
+                        "lun": 15,
+                        "name": "[parameters('dataDiskName15')]",
+                        "createOption": "attach",
+                        "managedDisk": {
+                            "id": "[resourceId('Microsoft.Compute/disks/', parameters('dataDiskName15'))]"
+                        }
+                    },
+                    {
+                        "lun": 16,
+                        "name": "[parameters('dataDiskName16')]",
+                        "createOption": "attach",
+                        "managedDisk": {
+                            "id": "[resourceId('Microsoft.Compute/disks/', parameters('dataDiskName16'))]"
+                        }
+                    },
+                    {
+                        "lun": 17,
+                        "name": "[parameters('dataDiskName17')]",
+                        "createOption": "attach",
+                        "managedDisk": {
+                            "id": "[resourceId('Microsoft.Compute/disks/', parameters('dataDiskName17'))]"
+                        }
+                    },
+                    {
+                        "lun": 18,
+                        "name": "[parameters('dataDiskName18')]",
+                        "createOption": "attach",
+                        "managedDisk": {
+                            "id": "[resourceId('Microsoft.Compute/disks/', parameters('dataDiskName18'))]"
+                        }
+                    },
+                    {
+                        "lun": 19,
+                        "name": "[parameters('dataDiskName19')]",
+                        "createOption": "attach",
+                        "managedDisk": {
+                            "id": "[resourceId('Microsoft.Compute/disks/', parameters('dataDiskName19'))]"
+                        }
+                    },
+                                        {
+                        "lun": 20,
+                        "name": "[parameters('dataDiskName20')]",
+                        "createOption": "attach",
+                        "managedDisk": {
+                            "id": "[resourceId('Microsoft.Compute/disks/', parameters('dataDiskName20'))]"
+                        }
+                    },
+                    {
+                        "lun": 21,
+                        "name": "[parameters('dataDiskName21')]",
+                        "createOption": "attach",
+                        "managedDisk": {
+                            "id": "[resourceId('Microsoft.Compute/disks/', parameters('dataDiskName21'))]"
+                        }
+                    },
+                    {
+                        "lun": 22,
+                        "name": "[parameters('dataDiskName22')]",
+                        "createOption": "attach",
+                        "managedDisk": {
+                            "id": "[resourceId('Microsoft.Compute/disks/', parameters('dataDiskName22'))]"
+                        }
+                    },
+                    {
+                        "lun": 23,
+                        "name": "[parameters('dataDiskName23')]",
+                        "createOption": "attach",
+                        "managedDisk": {
+                            "id": "[resourceId('Microsoft.Compute/disks/', parameters('dataDiskName23'))]"
+                        }
+                    },
+                    {
+                        "lun": 24,
+                        "name": "[parameters('dataDiskName24')]",
+                        "createOption": "attach",
+                        "managedDisk": {
+                            "id": "[resourceId('Microsoft.Compute/disks/', parameters('dataDiskName24'))]"
+                        }
+                    },
+                    {
+                        "lun": 25,
+                        "name": "[parameters('dataDiskName25')]",
+                        "createOption": "attach",
+                        "managedDisk": {
+                            "id": "[resourceId('Microsoft.Compute/disks/', parameters('dataDiskName25'))]"
+                        }
+                    },
+                    {
+                        "lun": 26,
+                        "name": "[parameters('dataDiskName26')]",
+                        "createOption": "attach",
+                        "managedDisk": {
+                            "id": "[resourceId('Microsoft.Compute/disks/', parameters('dataDiskName26'))]"
+                        }
+                    },
+                    {
+                        "lun": 27,
+                        "name": "[parameters('dataDiskName27')]",
+                        "createOption": "attach",
+                        "managedDisk": {
+                            "id": "[resourceId('Microsoft.Compute/disks/', parameters('dataDiskName27'))]"
+                        }
+                    },
+                    {
+                        "lun": 28,
+                        "name": "[parameters('dataDiskName28')]",
+                        "createOption": "attach",
+                        "managedDisk": {
+                            "id": "[resourceId('Microsoft.Compute/disks/', parameters('dataDiskName28'))]"
+                        }
+                    },
+                    {
+                        "lun": 29,
+                        "name": "[parameters('dataDiskName29')]",
+                        "createOption": "attach",
+                        "managedDisk": {
+                            "id": "[resourceId('Microsoft.Compute/disks/', parameters('dataDiskName29'))]"
+                        }
+                    },
+                    {
+                        "lun": 30,
+                        "name": "[parameters('dataDiskName30')]",
+                        "createOption": "attach",
+                        "managedDisk": {
+                            "id": "[resourceId('Microsoft.Compute/disks/', parameters('dataDiskName30'))]"
+                        }
                     }
+
                     ]
                 }
             }
