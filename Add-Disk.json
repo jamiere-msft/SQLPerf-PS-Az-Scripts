@@ -1,0 +1,53 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "vmName": {
+            "default": "gltSDP1",
+            "type": "String"
+        },
+        "diskStorageType": {
+            "defaultValue": "Premium SSD LRS",
+ 
+            "type": "String"
+        },
+        "dataDiskCount": {
+            "defaultValue": 1,
+            "type": "Int"
+        },
+        "dataDiskName": {
+            "defaultValue": "gltSDP1-datadisk-27",
+            "type": "String"
+        },
+        "location": {
+            "defaultValue": "centralus",
+            "type": "String"
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Compute/virtualMachines",
+            "apiVersion": "2018-06-01",
+            "name": "[parameters('vmName')]",
+            "location": "[parameters('location')]",
+            "properties": {
+                "storageProfile": {
+                    "copy": [
+                        {
+                            "name": "dataDisks",
+                            "count": "[parameters('dataDiskCount')]",
+                            "input": {
+                                "name": "[parameters('dataDiskName')]",
+                                "lun": "[copyIndex('dataDisks')]",
+                                "createOption": "Attach",
+                                "managedDisk": {
+                                    "storageAccountType": "[parameters('diskStorageType')]"
+                                }
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}
