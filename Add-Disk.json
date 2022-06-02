@@ -39,12 +39,10 @@
                     "input": {
                                 "name": "[parameters('dataDiskName')]",
                                 "lun": "[parameters('lun')]",
-                                "createOption": "Attach",
-                                "managedDisk": {
-                                    "storageAccountType": "[parameters('diskStorageType')]"
-                                  }
+                                "createOption": "Attach"
                              }
                     }
                 }
-        ]
+        }
+    ]
 }
