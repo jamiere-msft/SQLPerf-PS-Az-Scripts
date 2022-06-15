@@ -51,10 +51,14 @@
             "defaultValue": "Read-Only",
             "type": "string"
         },
-        "publicIPAddresses_SQLPerfARM_VM_ip_name": {
+        "publicIPAddress_name": {
             "defaultValue": "SQLPerfARM-VM-ip",
             "type": "String"
         },
+        "networkInterfacesName": {
+            "defaultValue": "sqlperfarm-vm204",
+            "type": "String"
+        }, 
         "virtualNetworkName": {
             "defaultValue": "SQLPerfARMTest-vnet",
             "type": "String"
@@ -752,7 +756,7 @@
         {
             "type": "Microsoft.Network/publicIPAddresses",
             "apiVersion": "2020-11-01",
-            "name": "[parameters('publicIPAddresses_SQLPerfARM_VM_ip_name')]",
+            "name": "[parameters('publicIPAddress_name')]",
             "location": "[parameters('location')]",
             "sku": {
                 "name": "Basic",
@@ -1669,7 +1673,7 @@
             "name": "[parameters('networkInterfacesName')]",
             "location": "[parameters('location')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_SQLPerfARM_VM_ip_name'))]",
+                "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddress_name'))]",
                 "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworkName'), 'default')]",
                 "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroupName'))]"
             ],
@@ -1681,7 +1685,7 @@
                             "privateIPAddress": "10.13.0.4",
                             "privateIPAllocationMethod": "Dynamic",
                             "publicIPAddress": {
-                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_SQLPerfARM_VM_ip_name'))]"
+                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddress_name'))]"
                             },
                             "subnet": {
                                 "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworkName'), 'default')]"
