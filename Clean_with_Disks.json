@@ -856,54 +856,55 @@
                         "enabled": true
                     }
                 }
-        },
-        {
-            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
-            "apiVersion": "2020-11-01",
-            "name": "[concat(parameters('networkSecurityGroups_NRMS_vnet_name'), '/NRMS-Rule-101')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_NRMS_vnet_name'))]"
-            ],
-            "properties": {
-                "description": "Created by Azure Core Security managed policy, placeholder you can delete, please see aka.ms/cainsgpolicy",
-                "protocol": "Tcp",
-                "sourcePortRange": "*",
-                "destinationPortRange": "443",
-                "sourceAddressPrefix": "VirtualNetwork",
-                "destinationAddressPrefix": "*",
-                "access": "Allow",
-                "priority": 101,
-                "direction": "Inbound",
-                "sourcePortRanges": [],
-                "destinationPortRanges": [],
-                "sourceAddressPrefixes": [],
-                "destinationAddressPrefixes": []
-            }
-        },
-        {
-            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
-            "apiVersion": "2020-11-01",
-            "name": "[concat(parameters('networkSecurityGroups_NRMS_vnet_default_name'), '/NRMS-Rule-101')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_NRMS_vnet_default_name'))]"
-            ],
-            "properties": {
-                "description": "Created by Azure Core Security managed policy, placeholder you can delete, please see aka.ms/cainsgpolicy",
-                "protocol": "Tcp",
-                "sourcePortRange": "*",
-                "destinationPortRange": "443",
-                "sourceAddressPrefix": "VirtualNetwork",
-                "destinationAddressPrefix": "*",
-                "access": "Allow",
-                "priority": 101,
-                "direction": "Inbound",
-                "sourcePortRanges": [],
-                "destinationPortRanges": [],
-                "sourceAddressPrefixes": [],
-                "destinationAddressPrefixes": []
-            }
-        },
-        {
+        }
+    },
+    {
+        "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+        "apiVersion": "2020-11-01",
+        "name": "[concat(parameters('networkSecurityGroups_NRMS_vnet_name'), '/NRMS-Rule-101')]",
+        "dependsOn": [
+            "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_NRMS_vnet_name'))]"
+        ],
+        "properties": {
+            "description": "Created by Azure Core Security managed policy, placeholder you can delete, please see aka.ms/cainsgpolicy",
+            "protocol": "Tcp",
+            "sourcePortRange": "*",
+            "destinationPortRange": "443",
+            "sourceAddressPrefix": "VirtualNetwork",
+            "destinationAddressPrefix": "*",
+            "access": "Allow",
+            "priority": 101,
+            "direction": "Inbound",
+            "sourcePortRanges": [],
+            "destinationPortRanges": [],
+            "sourceAddressPrefixes": [],
+            "destinationAddressPrefixes": []
+        }
+    },
+    {
+        "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+        "apiVersion": "2020-11-01",
+        "name": "[concat(parameters('networkSecurityGroups_NRMS_vnet_default_name'), '/NRMS-Rule-101')]",
+        "dependsOn": [
+            "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_NRMS_vnet_default_name'))]"
+        ],
+        "properties": {
+            "description": "Created by Azure Core Security managed policy, placeholder you can delete, please see aka.ms/cainsgpolicy",
+            "protocol": "Tcp",
+            "sourcePortRange": "*",
+            "destinationPortRange": "443",
+            "sourceAddressPrefix": "VirtualNetwork",
+            "destinationAddressPrefix": "*",
+            "access": "Allow",
+            "priority": 101,
+            "direction": "Inbound",
+            "sourcePortRanges": [],
+            "destinationPortRanges": [],
+            "sourceAddressPrefixes": [],
+            "destinationAddressPrefixes": []
+        }
+    },
+    {
             "type": "Microsoft.Network/networkSecurityGroups/securityRules",
             "apiVersion": "2020-11-01",
             "name": "[concat(parameters('networkSecurityGroupName'), '/NRMS-Rule-101')]",
