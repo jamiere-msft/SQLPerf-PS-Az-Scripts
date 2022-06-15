@@ -48,7 +48,7 @@
             }
         },
         "dataDiskCaching": {
-            "defaultValue": "Read-Only",
+            "defaultValue": "ReadOnly",
             "type": "string"
         },
         "publicIPAddress_name": {
