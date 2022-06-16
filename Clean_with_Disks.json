@@ -817,13 +817,13 @@
                                     "input": {
                                         "caching": "[parameters('dataDiskCaching')]",
                                         "diskSizeGB": "[parameters('dataDiskSizeInGB')]",
-                                        "lun": "[copyIndex('dataDisks')]",
-                                        "name": "[concat(parameters('virtualMachineName'), '-datadisk-', copyIndex('dataDisks'))]",
+                                        "lun": "[copyIndex('dataDiskCount')]",
+                                        "name": "[concat(parameters('virtualMachineName'), '-datadisk-', copyIndex('dataDiskCount'))]",
                                         "createOption": "Attach",
                                         "deleteOption": "Delete",
                                         "managedDisk": {
                                             "storageAccountType": "Premium_LRS",
-                                            "id": "[resourceId('Microsoft.Compute/disks/', concat(parameters('virtualMachineName'), '-datadisk-', copyIndex('dataDisks')))]"
+                                            "id": "[resourceId('Microsoft.Compute/disks/', concat(parameters('virtualMachineName'), '-datadisk-', copyIndex('dataDiskCount')))]"
                                         }
                                     }
                                 }
