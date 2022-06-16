@@ -34,7 +34,7 @@
             }
         },
         "dataDiskCount": {
-           "defaultValue": 38,
+           "defaultValue": 32,
             "type": "Int",
             "metadata": {
                 "description": "Number of SSD data disks to attach to VM."
