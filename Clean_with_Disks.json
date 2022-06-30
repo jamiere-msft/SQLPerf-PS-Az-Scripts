@@ -94,6 +94,10 @@
                 "NRMS-Version": "2019-03-20"
             },
             "properties": {
+                "copy": {
+                    "name": "diskLoop",
+                    "count": "[parameters('dataDisksCount')]"
+                }
                 "securityRules": [
                     {
                         "name": "NRMS-Rule-105",
