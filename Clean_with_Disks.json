@@ -33,7 +33,7 @@
                 "description": "The location/region for the VM."
             }
         },
-        "DiskCount": {
+        "dataDiskCount": {
            "defaultValue": 32,
             "type": "Int",
             "metadata": {
@@ -813,17 +813,17 @@
                     "copy": [
                                 {
                                     "name": "dataDisks",
-                                    "count": "[parameters('DiskCount')]",
+                                    "count": "[parameters('dataDiskCount')]",
                                     "input": {
                                         "caching": "[parameters('dataDiskCaching')]",
                                         "diskSizeGB": "[parameters('dataDiskSizeInGB')]",
-                                        "lun": "[copyIndex('DiskCount')]",
-                                        "name": "[concat(parameters('virtualMachineName'), '-datadisk-', copyIndex('DiskCount'))]",
+                                        "lun": "[copyIndex('dataDiskCount')]",
+                                        "name": "[concat(parameters('virtualMachineName'), '-datadisk-', copyIndex('dataDiskCount'))]",
                                         "createOption": "Attach",
                                         "deleteOption": "Delete",
                                         "managedDisk": {
                                             "storageAccountType": "Premium_LRS",
-                                            "id": "[resourceId('Microsoft.Compute/disks/', concat(parameters('virtualMachineName'), '-datadisk-', copyIndex('DiskCount')))]"
+                                            "id": "[resourceId('Microsoft.Compute/disks/', concat(parameters('virtualMachineName'), '-datadisk-', copyIndex('dataDiskCount')))]"
                                         }
                                     }
                                 }
