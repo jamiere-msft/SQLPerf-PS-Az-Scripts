@@ -72,21 +72,21 @@
             }
         },
         "dataDiskSizeInGB": {
-            "defaultValue": 1048,
+            "defaultValue": 2048,
             "type": "Int",
             "metadata": {
                 "description": "Data Disk size in GiB."
             }
         },
         "diskIOPSReadWrite": {
-            "defaultValue": 51200,
+            "defaultValue": 44000,
             "type": "Int",
             "metadata": {
                 "description": "Data Disk IOPS value representing the maximum IOPS that the disk can achieve."
             }
         },
         "diskMbpsReadWrite": {
-            "defaultValue": 768,
+            "defaultValue": 1200,
             "type": "Int",
             "metadata": {
                 "description": "Data Disk MBps value representing the maximum throughput that the disk can achieve."
